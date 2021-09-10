@@ -1,11 +1,12 @@
 pipeline{
-    agent any
+    agent any {
+        args '-v $HOME/.env:/root/.env'
+    }
 
     stages{
         stage('BUILD'){
             steps{
             sh 'cd && pwd'
-                sh '${USER}'
             sh 'pwd'
             }
         }
