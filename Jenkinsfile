@@ -5,6 +5,7 @@ pipeline{
         stage('BUILD'){
             steps{
             sh 'cd && pwd'
+                sh '${USER}'
             sh 'pwd'
             }
         }
