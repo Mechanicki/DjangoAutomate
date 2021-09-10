@@ -1,0 +1,7 @@
+website/static/
+website/mediafiles/
+env/
+.env
+*.sqlite3
+**/__pycache__
+**/migrations
