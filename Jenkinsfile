@@ -1,7 +1,5 @@
 pipeline{
-    agent any {
-        args '-v $HOME/.env:/root/.env'
-    }
+    agent any
 
     stages{
         stage('BUILD'){
