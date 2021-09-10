@@ -4,12 +4,12 @@ pipeline{
     stages{
         stage('BUILD'){
             steps{
-            sh docker-compose up -t website
+                sh 'docker-compose up -t website'
             }
         }
         stage('DEPLOY'){
             steps{
-            sh docker images
+                sh 'docker images'
             }
         }
     }
