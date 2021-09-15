@@ -4,7 +4,7 @@ pipeline{
     stages{
         stage('BUILD'){
             steps{
-             sh 'docker-compose up --build --force-recreate --no-input -d '
+             sh 'docker-compose up --build --force-recreate --remove-orphans --no-input -d '
             }
         }
         stage('DEPLOY'){
