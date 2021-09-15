@@ -1,8 +1,8 @@
 **/static/
 **/mediafiles/
 env/
-.env
-database.env
+.django.env
+.database.env
 *.sqlite3
 **/__pycache__
 **/migrations
