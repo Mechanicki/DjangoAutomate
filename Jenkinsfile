@@ -5,7 +5,7 @@ pipeline{
         stage('BUILD'){
             steps{
                sh 'pwd'
-                ws("/") {
+                ws("/test") {
                    sh 'pwd'
                    }
                 dir("home/master/"){
