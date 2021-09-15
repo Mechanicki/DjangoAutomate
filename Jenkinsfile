@@ -7,6 +7,8 @@ pipeline{
                 sh 'pwd'
                 dir('website/'){
                     sh 'pwd'
+                    sh 'mkdir test'
+                    sh 'ls'
                     sh 'docker-compose up --build -d --no-input'
                 }
             }
