@@ -4,13 +4,8 @@ pipeline{
     stages{
         stage('BUILD'){
             steps{
-                sh 'pwd'
-                dir('website/'){
-                    sh 'pwd'
-                    sh 'mkdir test'
-                    sh 'ls'
-                    sh 'docker-compose up --build -d --no-input'
-                }
+                sh 'ls'
+                sh 'docker-compose up --build -d --no-input'
             }
         }
         stage('DEPLOY'){
