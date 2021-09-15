@@ -4,8 +4,7 @@ pipeline{
     stages{
         stage('BUILD'){
             steps{
-                sh 'cd DjangoAutomate/'
-                sh 'docker-compose up --build -d'
+                sh 'pwd'
             }
         }
         stage('DEPLOY'){
