@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import os
 from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,8 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', False)
 
-
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = config('ALLOWED_HOST')
 
 
 # Application definition
@@ -77,10 +75,18 @@ WSGI_APPLICATION = 'website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+SECRET_KEY = config('SECRET_KEY')
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': config('POSTGRES_DB'),
+       'USER': config('POSTGRES_USER'),
+       'PASSWORD': config('POSTGRES_PASSWORD'),
+       'HOST': config('POSTGRES_HOST'),
+       'PORT': config('POSTGRES_PORT'),
     }
 }
 
@@ -120,13 +126,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-import os
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_URL = 'static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_ROOT = '/app/static/'
 
-MEDIA_URL = '/mediafiles/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'mediafiles/')
+MEDIA_URL = 'mediafiles/'
+# MEDIA_ROOT = os.path.join(BASE_DIR,'mediafiles/')
+MEDIA_ROOT = '/app/mediafiles/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

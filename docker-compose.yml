@@ -2,28 +2,35 @@ version: "3.7"
 
 services:
   django_gunicorn:
-    volumes:
-    - static:/static
-    - mediafiles:/mediafiles
     build: .
     ports:
       - 8000:8000    
-
+    volumes: 
+      - static:/app/static
+      - mediafiles:/app/mediafiles
     env_file: 
-      - home/master/.env
+      - ./.env
+      - ./database.env
+    depends_on:
+      - database
 
   nginx:
     build: ./nginx
-    volumes:
-      #Nazwa volume oraz sciezka do folderu na host'cie
-      - static:/static
-      - mediafiles:/mediafiles
     ports:
-      - 80:80    
+      - 80:80 
+    volumes: 
+      - static:/app/static
+      - mediafiles:/app/mediafiles
     depends_on:
       - django_gunicorn
+
+  database:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    env_file: 
+      - ./database.env
 
 volumes:
   static:
   mediafiles:
-  db:

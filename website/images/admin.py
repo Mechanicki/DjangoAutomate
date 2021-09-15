@@ -5,6 +5,6 @@ from .models import *
 
 class ImageAdmin(admin.ModelAdmin):
     list_display = ['name','image']
-    ordering = ['name'] 
+    ordering = ['name']
 
 admin.site.register(Image,ImageAdmin)

@@ -1,8 +1,8 @@
-FROM nginx:alpine
+FROM nginx:latest
 
-RUN sudo app update && sudo apt upgrade
+RUN apt update && apt upgrade
 
-COPY ./nginx ./etc/nginx/conf.d/default.conf
+COPY ./default.conf ./etc/nginx/conf.d/default.conf
 
 #zamist podmiany pliku default.conf możemy stworzyć nowy plik
 # i umieścic go w /etc/nginx/sites-available/ oraz
