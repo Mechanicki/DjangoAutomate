@@ -4,8 +4,7 @@ pipeline{
     stages{
         stage('BUILD'){
             steps{
-            sh 'cd && pwd'
-            sh 'pwd'
+              
             }
         }
         stage('DEPLOY'){

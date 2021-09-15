@@ -1,17 +1,21 @@
-FROM python:3.9:alpine
+FROM python:3.8-slim-buster
+
+RUN apt update && apt upgrade
 
 WORKDIR /app
 
 COPY . /app
 
-RUN sudo app update && sudo apt upgrade
-
-RUN python3 -m venv env && source /env/bin/activate
-
+RUN pip install psycopg2-binary
 RUN pip install -r requirements.txt
 
+# WORKDIR /app/website
+# RUN mkdir static && mkdir mediafiles 
+
+# WORKDIR /app
+
 EXPOSE 80
+ENTRYPOINT sh entrypoint.sh
 
-WORKDIR /app/webside/
-
-ENTRYPOINT sh /entrypoint.sh
+# EXPOSE 8000
+# CMD python3 manage.py runserver 0.0.0.0:8000

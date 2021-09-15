@@ -1,0 +1,6 @@
+.gitignore
+env/
+.env
+.database.env
+**/static
+**/mediafiles
