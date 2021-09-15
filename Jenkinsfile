@@ -4,7 +4,9 @@ pipeline{
     stages{
         stage('BUILD'){
             steps{
-             sh 'docker-compose up --build --force-recreate --remove-orphans --no-input -d '
+             sh 'cd webapp/'
+             sh 'git clone https://github.com/Mechanicki/DjangoAutomate.git && cd  DjangoAutomate'
+             sh 'docker-compose up --build --no-input -d '
             }
         }
         stage('DEPLOY'){
