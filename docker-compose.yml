@@ -9,7 +9,7 @@ services:
       - static:/app/static
       - mediafiles:/app/mediafiles
     env_file: 
-      - ./.env
+      - ./.django.env
       - ./.database.env
     depends_on:
       - database
