@@ -5,9 +5,10 @@ pipeline{
         stage('BUILD'){
             steps{
                 sh 'pwd'
-                sh 'cd website/'
-                sh 'pwd'
-                sh 'docker-compose up --build -d --no-input'
+                dir('website'){
+                    sh 'pwd'
+                    sh 'docker-compose up --build -d --no-input'
+                }
             }
         }
         stage('DEPLOY'){
