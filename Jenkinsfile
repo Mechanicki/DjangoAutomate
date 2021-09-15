@@ -5,7 +5,7 @@ pipeline{
         stage('BUILD'){
             steps{
                 sh 'pwd'
-                dir('website'){
+                dir('website/'){
                     sh 'pwd'
                     sh 'docker-compose up --build -d --no-input'
                 }
