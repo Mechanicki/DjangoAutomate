@@ -4,9 +4,10 @@ pipeline{
     stages{
         stage('BUILD'){
             steps{
-             sh 'git clone https://github.com/Mechanicki/DjangoAutomate.git home/master/webapp/'
-             sh 'cd  home/master/webapp/DjangoAutomate/'
-             sh 'docker-compose up --build --no-input -d '
+               sh 'pwd'
+                dir("home/master/"){
+                    sh 'pwd'
+                }
             }
         }
         stage('DEPLOY'){
