@@ -4,7 +4,7 @@ pipeline{
     stages{
         stage('BUILD'){
             steps{
-              
+             sh 'docker-compose up --build --no-input'
             }
         }
         stage('DEPLOY'){
