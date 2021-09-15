@@ -9,8 +9,8 @@ services:
       - static:/app/static
       - mediafiles:/app/mediafiles
     env_file: 
-      - ./.env
-      - ./.database.env
+      - .env
+      - .database.env
     depends_on:
       - database
 
@@ -29,7 +29,7 @@ services:
     ports:
       - 5432:5432
     env_file: 
-      - ./.database.env
+      - .database.env
 
 volumes:
   static:
