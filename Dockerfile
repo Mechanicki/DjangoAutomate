@@ -1,6 +1,6 @@
 FROM python:3.8-slim-buster
 
-RUN apt update && apt upgrade && apt install libpq-dev python3-dev
+RUN apt update && apt upgrade && apt install libpq-dev python3-dev -y
 
 WORKDIR /app
 
