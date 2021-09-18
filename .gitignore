@@ -2,5 +2,5 @@
 **/mediafiles/
 env/
 *.sqlite3
-**/__pycache__
-**/migrations
+**/migrations/**.py 
+!__init__.py
